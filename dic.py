@@ -1,7 +1,19 @@
 import json
 import difflib 
-from difflib import SequenceMatcher
-from difflib import get_close_matches
+from difflib import SequenceMatcher, get_close_matches
 
 data = json.load(open("data.json"))
-print(data.keys())
+def translate(word_lower):
+        
+    word_lower = word_lower.lower()
+    if word_lower in data:
+        return data[word_lower]
+   
+   
+word = input("enter a word: ")
+output =translate(word)
+if type(output) == list:
+    for i in output:
+        print(i)
+else:
+    print("enter valid word")
